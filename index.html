@@ -19,17 +19,11 @@
       line-height: 1.5;
       overflow-x: hidden;
     }
-    /* South African Flag Colors */
+    /* Baby blue color scheme */
     :root {
-      --sa-red: #DE3831;
-      --sa-blue: #003DA5;
-      --sa-green: #007A4D;
-      --sa-yellow: #FED100;
-      --sa-black: #000000;
-      --sa-white: #FFFFFF;
-      --accent: var(--sa-red);
-      --accent-dark: #b02e28;
-      --accent-light: #e65c56;
+      --baby-blue: #87CEEB;
+      --baby-blue-dark: #6CB4EE;
+      --baby-blue-light: #A8E4FF;
     }
     .container {
       max-width: 1400px;
@@ -43,7 +37,7 @@
       z-index: 100;
       background: rgba(10,10,10,0.96);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(222,56,49,0.3);
+      border-bottom: 1px solid rgba(135,206,235,0.3);
       padding: 0.8rem 0;
     }
     .nav-container {
@@ -64,7 +58,7 @@
       justify-content: center;
     }
     .nav-links a {
-      color: var(--sa-white);
+      color: white;
       text-decoration: none;
       font-weight: 600;
       text-transform: uppercase;
@@ -73,7 +67,7 @@
       transition: color 0.2s;
     }
     .nav-links a:hover {
-      color: var(--sa-red);
+      color: var(--baby-blue);
     }
     .nav-icons {
       display: flex;
@@ -82,19 +76,19 @@
       margin-top: 0.25rem;
     }
     .nav-icons i {
-      color: var(--sa-white);
+      color: white;
       font-size: 1.3rem;
       cursor: pointer;
       transition: color 0.2s;
     }
     .nav-icons i:hover {
-      color: var(--sa-red);
+      color: var(--baby-blue);
     }
     .cart-count {
       position: absolute;
       top: -10px;
       right: -14px;
-      background: var(--sa-red);
+      background: var(--baby-blue);
       color: black;
       font-size: 0.65rem;
       border-radius: 50%;
@@ -106,8 +100,8 @@
       font-weight: bold;
     }
     .btn-primary {
-      background: var(--sa-red);
-      color: white;
+      background: var(--baby-blue);
+      color: #0a0a0a;
       padding: 0.7rem 1.3rem;
       font-weight: 600;
       letter-spacing: 1px;
@@ -119,13 +113,13 @@
       font-family: 'Bell MT', serif;
     }
     .btn-primary:hover {
-      background: var(--sa-blue);
+      background: var(--baby-blue-dark);
       transform: translateY(-2px);
     }
     .btn-secondary {
-      border: 1.5px solid var(--sa-red);
+      border: 1.5px solid var(--baby-blue);
       background: transparent;
-      color: var(--sa-red);
+      color: var(--baby-blue);
       padding: 0.6rem 1.2rem;
       font-weight: 600;
       text-transform: uppercase;
@@ -134,9 +128,10 @@
       transition: 0.2s;
     }
     .btn-secondary:hover {
-      background: var(--sa-red);
+      background: var(--baby-blue);
       color: black;
     }
+    /* Product card - only used in admin dashboard now */
     .product-card {
       background: #111;
       border-radius: 12px;
@@ -146,7 +141,7 @@
     }
     .product-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(222,56,49,0.2);
+      box-shadow: 0 12px 24px rgba(135,206,235,0.2);
     }
     .rotate-container {
       perspective: 800px;
@@ -170,7 +165,7 @@
       margin-bottom: 0.2rem;
     }
     .product-price {
-      color: var(--sa-red);
+      color: var(--baby-blue);
       font-weight: 600;
       margin-bottom: 0.6rem;
     }
@@ -190,12 +185,13 @@
       transition: color 0.2s;
       font-size: 1.1rem;
     }
+    /* Cart drawer - fixed to show all options without cutting */
     .drawer {
       position: fixed;
       top: 0;
       right: 0;
       width: 100%;
-      max-width: 380px;
+      max-width: 420px;
       height: 100%;
       background: #0f0f0f;
       z-index: 1000;
@@ -203,10 +199,82 @@
       transition: transform 0.3s ease;
       display: flex;
       flex-direction: column;
-      border-left: 1px solid var(--sa-red);
+      border-left: 1px solid var(--baby-blue);
     }
     .drawer.open {
       transform: translateX(0);
+    }
+    .drawer-header {
+      padding: 1rem;
+      border-bottom: 1px solid #222;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+    }
+    .cart-item {
+      display: flex;
+      gap: 1rem;
+      border-bottom: 1px solid #333;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+    }
+    .cart-item img {
+      width: 70px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .cart-item-details {
+      flex: 1;
+    }
+    .cart-item-title {
+      font-weight: bold;
+    }
+    .cart-item-size {
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+    .cart-item-price {
+      color: var(--baby-blue);
+      margin-top: 0.2rem;
+    }
+    .cart-item-controls {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+    .cart-item-controls button {
+      background: #222;
+      border: 1px solid #444;
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .cart-item-controls button:hover {
+      background: var(--baby-blue);
+      color: black;
+    }
+    .cart-item-remove {
+      background: none;
+      border: none;
+      color: #ff6b6b;
+      cursor: pointer;
+      font-size: 0.7rem;
+      margin-left: 0.5rem;
+    }
+    .cart-summary {
+      padding: 1rem;
+      border-top: 1px solid #222;
+      flex-shrink: 0;
     }
     .hero {
       margin-top: 120px;
@@ -215,11 +283,11 @@
     }
     .hero h1 {
       font-size: 2.5rem;
-      color: var(--sa-red);
+      color: var(--baby-blue);
     }
     .badge-sa {
-      background: rgba(222,56,49,0.2);
-      color: var(--sa-red);
+      background: rgba(135,206,235,0.2);
+      color: var(--baby-blue);
       padding: 0.2rem 0.8rem;
       border-radius: 30px;
       display: inline-block;
@@ -228,19 +296,13 @@
     .section-title {
       text-align: center;
       font-size: 1.8rem;
-      color: var(--sa-red);
+      color: var(--baby-blue);
     }
     .divider {
       width: 50px;
       height: 2px;
-      background: var(--sa-red);
+      background: var(--baby-blue);
       margin: 0.5rem auto 1.2rem;
-    }
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
     }
     .admin-table {
       width: 100%;
@@ -261,38 +323,33 @@
       border-radius: 6px;
       width: 100%;
     }
-    /* About page specific styles */
+    /* About page specific */
     .about-hero {
       margin-top: 80px;
       height: 80vh;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1600&h=800&fit=crop');
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://picsum.photos/id/104/1600/800');
       background-size: cover;
       background-position: center;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      position: relative;
     }
     .about-hero h1 {
       font-size: 4rem;
       font-weight: 800;
       letter-spacing: 4px;
-      color: var(--sa-white);
+      color: white;
       text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
     }
     .about-hero p {
       font-size: 1.5rem;
       margin-top: 1rem;
       font-style: italic;
-      color: var(--sa-yellow);
-    }
-    .story-section {
-      padding: 5rem 0;
-      background: #0a0a0a;
+      color: var(--baby-blue);
     }
     .flag-strip {
-      background: linear-gradient(90deg, var(--sa-red) 0%, var(--sa-blue) 25%, var(--sa-green) 50%, var(--sa-yellow) 75%, var(--sa-black) 100%);
+      background: linear-gradient(90deg, #87CEEB 0%, #6CB4EE 25%, #4A90E2 50%, #FED100 75%, #000000 100%);
       height: 4px;
       width: 100%;
       margin: 2rem 0;
@@ -307,16 +364,17 @@
       flex: 1;
       text-align: center;
       padding: 1rem;
-      border-left: 2px solid var(--sa-red);
+      border-left: 2px solid var(--baby-blue);
     }
     .timeline-item h3 {
       font-size: 1.8rem;
-      color: var(--sa-yellow);
+      color: var(--baby-blue);
     }
     @media (max-width: 768px) {
       .timeline { flex-direction: column; }
-      .timeline-item { border-left: none; border-top: 2px solid var(--sa-red); margin-top: 1rem; }
+      .timeline-item { border-left: none; border-top: 2px solid var(--baby-blue); margin-top: 1rem; }
       .about-hero h1 { font-size: 2.5rem; }
+      .container { padding: 0 1rem; }
     }
   </style>
 </head>
@@ -324,7 +382,9 @@
 
 <div class="navbar" id="navbar">
   <div class="container nav-container">
-    <div class="nav-logo"><img src="https://img.sanishtech.com/u/2ef34128dae88a1c89e6c055ace59bca.png" alt="KIVARO" id="logoImg"></div>
+    <div class="nav-logo">
+      <img src="https://img.sanishtech.com/u/2ef34128dae88a1c89e6c055ace59bca.png" alt="KIVARO" id="logoImg" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 60\'%3E%3Ctext x=\'10\' y=\'40\' font-family=\'Arial\' font-size=\'30\' fill=\'%2387CEEB\'%3EKIVARO%3C/text%3E%3C/svg%3E';">
+    </div>
     <div class="nav-links"><a href="#" data-page="home">Home</a><a href="#" data-page="shop">Shop</a><a href="#" data-page="about">About</a><a href="#" data-page="contact">Contact</a></div>
     <div class="nav-icons"><i class="fas fa-search"></i><div style="position:relative;"><i class="far fa-heart" id="wishlistIconBtn"></i></div><div style="position:relative;"><i class="fas fa-shopping-bag" id="cartIconBtn"></i><span id="cartCountBadge" class="cart-count">0</span></div></div>
   </div>
@@ -332,34 +392,64 @@
 
 <main id="appRoot"></main>
 
-<div id="cartDrawer" class="drawer"><div style="padding:1rem; display:flex; justify-content:space-between;"><h2>CART</h2><i class="fas fa-times" id="closeCartBtn"></i></div><div id="cartItemsList" style="padding:1rem;"></div><div style="padding:1rem; border-top:1px solid #222;"><div>Subtotal: <span id="cartSubtotal">R0</span></div><div>Shipping: <span id="cartShipping">R0</span></div><div><strong>Total: <span id="cartTotal">R0</span></strong></div><button id="checkoutBtn" class="btn-primary w-full mt-3">PAY</button></div></div>
-<div id="wishlistDrawer" class="drawer"><div style="padding:1rem; display:flex; justify-content:space-between;"><h2>WISHLIST</h2><i class="fas fa-times" id="closeWishlistBtn"></i></div><div id="wishlistItemsList" style="padding:1rem;"></div></div>
+<!-- Cart Drawer - Improved layout to prevent cutoff -->
+<div id="cartDrawer" class="drawer">
+  <div class="drawer-header"><h2>CART</h2><i class="fas fa-times" id="closeCartBtn" style="cursor:pointer;"></i></div>
+  <div id="cartItemsList" class="drawer-body"></div>
+  <div class="cart-summary">
+    <div>Subtotal: <span id="cartSubtotal">R0</span></div>
+    <div>Shipping: <span id="cartShipping">R0</span></div>
+    <div class="font-bold mt-1">Total: <span id="cartTotal">R0</span></div>
+    <button id="checkoutBtn" class="btn-primary w-full mt-3">PROCEED TO PAYMENT</button>
+  </div>
+</div>
 
-<div id="adminModal" class="fixed inset-0 bg-black/80 backdrop-blur hidden items-center justify-center z-[200]"><div class="bg-black border border-red-600 p-6 rounded-xl max-w-md w-full mx-4"><div class="flex justify-between"><h2 class="text-red-600">ADMIN LOGIN</h2><i class="fas fa-times cursor-pointer" id="closeAdminModal"></i></div><input type="text" id="adminUser" placeholder="Username" class="mt-4"><input type="password" id="adminPass" placeholder="Password" class="mt-3"><button id="adminLoginBtn" class="btn-primary w-full mt-4">ENTER</button></div></div>
-<div id="paymentModal" class="fixed inset-0 bg-black/80 backdrop-blur hidden items-center justify-center z-[200]"><div class="bg-black border border-red-600 p-6 rounded-xl max-w-md w-full mx-4 text-center"><i class="fas fa-credit-card text-3xl text-red-600"></i><h3 class="text-xl mt-2">Bank Transfer</h3><p class="mt-3">Account: KIVARO (Pty) Ltd</p><p>Account No: <strong class="text-red-600">10221026744</strong></p><p>Bank: FNB / ABSA</p><button class="btn-primary mt-4" id="closePaymentModal">Close</button></div></div>
+<!-- Wishlist Drawer -->
+<div id="wishlistDrawer" class="drawer">
+  <div class="drawer-header"><h2>WISHLIST</h2><i class="fas fa-times" id="closeWishlistBtn" style="cursor:pointer;"></i></div>
+  <div id="wishlistItemsList" class="drawer-body"></div>
+</div>
 
-<!-- Modal for adding product with file uploads -->
+<!-- Admin Login Modal -->
+<div id="adminModal" class="fixed inset-0 bg-black/80 backdrop-blur hidden items-center justify-center z-[200]">
+  <div class="bg-black border border-blue-300 p-6 rounded-xl max-w-md w-full mx-4">
+    <div class="flex justify-between"><h2 class="text-blue-300">ADMIN LOGIN</h2><i class="fas fa-times cursor-pointer" id="closeAdminModal"></i></div>
+    <input type="text" id="adminUser" placeholder="Username" class="mt-4">
+    <input type="password" id="adminPass" placeholder="Password" class="mt-3">
+    <button id="adminLoginBtn" class="btn-primary w-full mt-4">ENTER</button>
+  </div>
+</div>
+
+<!-- Payment Modal (Banking details) -->
+<div id="paymentModal" class="fixed inset-0 bg-black/80 backdrop-blur hidden items-center justify-center z-[200]">
+  <div class="bg-black border border-blue-300 p-6 rounded-xl max-w-md w-full mx-4 text-center">
+    <i class="fas fa-credit-card text-3xl text-blue-300"></i>
+    <h3 class="text-xl mt-2">Bank Transfer / EFT</h3>
+    <p class="mt-3">Account Name: <strong>KIVARO (Pty) Ltd</strong></p>
+    <p>Account Number: <strong class="text-blue-300">10221026744</strong></p>
+    <p>Bank: FNB / ABSA</p>
+    <p class="text-xs text-gray-400 mt-2">Use order reference: your email</p>
+    <button class="btn-primary mt-4" id="closePaymentModal">Close</button>
+  </div>
+</div>
+
+<!-- Product Add Modal (Admin only) -->
 <div id="productModal" class="fixed inset-0 bg-black/80 backdrop-blur hidden items-center justify-center z-[300]">
-  <div class="bg-black border border-red-600 p-6 rounded-xl max-w-md w-full mx-4">
-    <div class="flex justify-between"><h2 class="text-red-600" id="productModalTitle">Add Product</h2><i class="fas fa-times cursor-pointer" id="closeProductModal"></i></div>
+  <div class="bg-black border border-blue-300 p-6 rounded-xl max-w-md w-full mx-4">
+    <div class="flex justify-between"><h2 class="text-blue-300">Add Product</h2><i class="fas fa-times cursor-pointer" id="closeProductModal"></i></div>
     <input type="text" id="prodName" placeholder="Product Name" class="mt-4">
     <input type="number" id="prodPrice" placeholder="Price (ZAR)" class="mt-3">
     <select id="prodCategory" class="mt-3"><option value="hoodie">Hoodie</option><option value="cap">Cap</option></select>
-    <div class="mt-3"><label class="file-input-label bg-gray-700 px-2 py-1 rounded cursor-pointer">Front Image <input type="file" id="prodFrontFile" accept="image/jpeg" style="display:none;"></label><span id="frontFileName"> No file</span></div>
-    <div class="mt-3"><label class="file-input-label bg-gray-700 px-2 py-1 rounded cursor-pointer">Back Image <input type="file" id="prodBackFile" accept="image/jpeg" style="display:none;"></label><span id="backFileName"> No file</span></div>
+    <div class="mt-3"><label class="bg-gray-700 px-2 py-1 rounded cursor-pointer inline-block">Front Image (JPEG) <input type="file" id="prodFrontFile" accept="image/jpeg" style="display:none;"></label><span id="frontFileName"> No file</span></div>
+    <div class="mt-3"><label class="bg-gray-700 px-2 py-1 rounded cursor-pointer inline-block">Back Image (JPEG) <input type="file" id="prodBackFile" accept="image/jpeg" style="display:none;"></label><span id="backFileName"> No file</span></div>
     <div class="mt-3"><label>Sizes (comma separated):</label><input type="text" id="prodSizes" placeholder="S,M,L,XL or One Size" class="mt-1"></div>
     <button id="saveProductBtn" class="btn-primary w-full mt-4">Save Product</button>
   </div>
 </div>
 
 <script>
-  // ---------- PRODUCTS (stored as data URLs) ----------
-  let products = JSON.parse(localStorage.getItem('kivaro_products')) || [
-    { id: 1, name: "KIVARO OVERSIZED HOODIE", price: 1890, category: "hoodie", sizes: ["S","M","L","XL"], frontImg: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&h=800&fit=crop", backImg: "https://images.unsplash.com/photo-1578768079052-aa76e52ff62e?w=600&h=800&fit=crop" },
-    { id: 2, name: "KIVARO TECH CAP", price: 590, category: "cap", sizes: ["One Size"], frontImg: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=600&h=800&fit=crop", backImg: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=600&h=800&fit=crop" },
-    { id: 3, name: "KIVARO EMBROIDERED CAP", price: 690, category: "cap", sizes: ["One Size"], frontImg: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=600&h=800&fit=crop", backImg: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=600&h=800&fit=crop" },
-    { id: 4, name: "KIVARO ESSENTIAL HOODIE", price: 1590, category: "hoodie", sizes: ["S","M","L","XL"], frontImg: "https://images.unsplash.com/photo-1578768079052-aa76e52ff62e?w=600&h=800&fit=crop", backImg: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&h=800&fit=crop" }
-  ];
+  // ---------- PRODUCTS (Admin only, no public display) ----------
+  let products = JSON.parse(localStorage.getItem('kivaro_products')) || [];
   let subscribers = JSON.parse(localStorage.getItem('kivaro_subscribers')) || [];
   let pageViews = parseInt(localStorage.getItem('kivaro_views') || '0'); pageViews++; localStorage.setItem('kivaro_views', pageViews);
   let cart = JSON.parse(localStorage.getItem('kivaro_cart') || '[]');
@@ -371,57 +461,63 @@
   function saveCart() { localStorage.setItem('kivaro_cart', JSON.stringify(cart)); updateCartUI(); }
   function saveWishlist() { localStorage.setItem('kivaro_wishlist', JSON.stringify(wishlist)); renderWishlistDrawer(); }
   function updateCartBadge() { document.getElementById('cartCountBadge').innerText = cart.reduce((a,b)=>a+b.quantity,0); }
-  function showToast(msg) { let t=document.getElementById('toast'); if(!t){t=document.createElement('div'); t.id='toast'; t.className='fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-4 py-2 rounded z-50 text-sm'; document.body.appendChild(t);} t.innerText=msg; t.style.opacity='1'; setTimeout(()=>t.style.opacity='0',2000); }
+  function showToast(msg) { let t=document.getElementById('toast'); if(!t){t=document.createElement('div'); t.id='toast'; t.className='fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-blue-300 text-black px-4 py-2 rounded z-50 text-sm'; document.body.appendChild(t);} t.innerText=msg; t.style.opacity='1'; setTimeout(()=>t.style.opacity='0',2000); }
   function addToCart(product, size) { let existing = cart.find(i=>i.id===product.id && i.size===size); if(existing) existing.quantity++; else cart.push({...product, selectedSize:size, quantity:1}); saveCart(); showToast(`Added R${product.price}`); }
   function removeCartItem(id,size) { cart = cart.filter(i=>!(i.id===id && i.selectedSize===size)); saveCart(); }
   function updateQty(id,size,newQty) { let item=cart.find(i=>i.id===id && i.selectedSize===size); if(item && newQty>0) item.quantity=newQty; saveCart(); }
   function isInWishlist(id) { return wishlist.some(p=>p.id===id); }
   function toggleWishlist(product) { if(isInWishlist(product.id)) wishlist=wishlist.filter(p=>p.id!==product.id); else wishlist.push(product); saveWishlist(); renderCurrentPage(); showToast(isInWishlist(product.id)?"❤️ Wishlist":"Removed"); }
   
+  // Cart drawer rendering with improved layout
   function renderCartDrawer() {
     let container = document.getElementById('cartItemsList'); if(!container) return;
-    if(cart.length===0){ container.innerHTML='<div class="text-center text-gray-500">Empty</div>'; document.getElementById('cartSubtotal').innerText='R0'; document.getElementById('cartShipping').innerText='R0'; document.getElementById('cartTotal').innerText='R0'; return; }
+    if(cart.length===0){ container.innerHTML='<div class="text-center text-gray-500 py-10">Your cart is empty</div>'; document.getElementById('cartSubtotal').innerText='R0'; document.getElementById('cartShipping').innerText='R0'; document.getElementById('cartTotal').innerText='R0'; return; }
     let subtotal = 0;
-    container.innerHTML = cart.map(item => { subtotal += item.price * item.quantity; return `<div class="flex gap-3 border-b border-gray-800 py-3"><img src="${item.frontImg}" class="w-16 h-20 object-cover rounded"><div><p class="font-bold">${item.name}</p><p class="text-xs">Size: ${item.selectedSize}</p><p class="text-red-500">R${item.price}</p><div class="flex gap-2 mt-1"><button class="qty-dec border px-2" data-id="${item.id}" data-size="${item.selectedSize}">-</button><span>${item.quantity}</span><button class="qty-inc border px-2" data-id="${item.id}" data-size="${item.selectedSize}">+</button><button class="remove-item text-red-400 text-xs ml-2" data-id="${item.id}" data-size="${item.selectedSize}">remove</button></div></div></div>`; }).join('');
+    container.innerHTML = cart.map(item => {
+      subtotal += item.price * item.quantity;
+      return `
+        <div class="cart-item">
+          <img src="${item.frontImg}" alt="${item.name}">
+          <div class="cart-item-details">
+            <div class="cart-item-title">${item.name}</div>
+            <div class="cart-item-size">Size: ${item.selectedSize}</div>
+            <div class="cart-item-price">R${item.price}</div>
+            <div class="cart-item-controls">
+              <button class="qty-dec" data-id="${item.id}" data-size="${item.selectedSize}">-</button>
+              <span>${item.quantity}</span>
+              <button class="qty-inc" data-id="${item.id}" data-size="${item.selectedSize}">+</button>
+              <button class="cart-item-remove remove-item" data-id="${item.id}" data-size="${item.selectedSize}">Remove</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
     let shipping = subtotal > 2000 ? 0 : 150;
     document.getElementById('cartSubtotal').innerText = `R${subtotal}`;
     document.getElementById('cartShipping').innerText = `R${shipping}`;
     document.getElementById('cartTotal').innerText = `R${subtotal+shipping}`;
+    
     document.querySelectorAll('.qty-inc').forEach(btn=>btn.addEventListener('click',()=>{ let id=parseInt(btn.dataset.id),size=btn.dataset.size,item=cart.find(i=>i.id===id && i.selectedSize===size); if(item) updateQty(id,size,item.quantity+1); }));
     document.querySelectorAll('.qty-dec').forEach(btn=>btn.addEventListener('click',()=>{ let id=parseInt(btn.dataset.id),size=btn.dataset.size,item=cart.find(i=>i.id===id && i.selectedSize===size); if(item && item.quantity>1) updateQty(id,size,item.quantity-1); }));
     document.querySelectorAll('.remove-item').forEach(btn=>btn.addEventListener('click',()=>{ let id=parseInt(btn.dataset.id),size=btn.dataset.size; removeCartItem(id,size); }));
   }
+  
   function renderWishlistDrawer() {
     let cont = document.getElementById('wishlistItemsList'); if(!cont) return;
-    if(wishlist.length===0){ cont.innerHTML='<div class="text-center text-gray-500">Empty</div>'; return; }
-    cont.innerHTML = wishlist.map(p=>`<div class="flex gap-3 border-b border-gray-800 py-3"><img src="${p.frontImg}" class="w-16 h-20 object-cover"><div><p class="font-bold">${p.name}</p><p>R${p.price}</p><button class="text-xs text-red-500 border border-red-500 px-2 py-1 mt-2 addWishToCart" data-id="${p.id}">ADD TO CART</button></div></div>`).join('');
+    if(wishlist.length===0){ cont.innerHTML='<div class="text-center text-gray-500 py-10">Empty</div>'; return; }
+    cont.innerHTML = wishlist.map(p=>`
+      <div class="cart-item">
+        <img src="${p.frontImg}" class="w-16 h-20 object-cover">
+        <div class="cart-item-details">
+          <div class="cart-item-title">${p.name}</div>
+          <div class="cart-item-price">R${p.price}</div>
+          <button class="addWishToCart btn-primary text-xs py-1 px-2 mt-2" data-id="${p.id}">ADD TO CART</button>
+        </div>
+      </div>
+    `).join('');
     document.querySelectorAll('.addWishToCart').forEach(btn=>btn.addEventListener('click',()=>{ let prod=products.find(p=>p.id==parseInt(btn.dataset.id)); if(prod) addToCart(prod, prod.sizes[0]); }));
   }
   function updateCartUI() { renderCartDrawer(); updateCartBadge(); }
-
-  // 360° rotation
-  function initScrollRotation() {
-    const items = document.querySelectorAll('.product-rotate-item');
-    if(!items.length) return;
-    const handleScroll = () => {
-      items.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        const winH = window.innerHeight;
-        const progress = (winH - rect.top) / (winH + rect.height);
-        const clamped = Math.min(Math.max(progress, 0), 1);
-        let angle = clamped * 360;
-        const img = el.querySelector('.rotate-img');
-        const front = el.dataset.front, back = el.dataset.back;
-        if(img && front && back) {
-          if(angle >= 180 && img.src !== back) img.src = back;
-          if(angle < 180 && img.src !== front) img.src = front;
-          img.style.transform = `rotateY(${angle}deg)`;
-        }
-      });
-    };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-  }
 
   let currentPage = 'home';
   function renderCurrentPage() {
@@ -432,117 +528,61 @@
       else if(currentPage === 'about') renderAboutPage();
       else if(currentPage === 'contact') renderContactPage();
       else renderHomepage();
-      setTimeout(initScrollRotation, 100);
     }
   }
 
+  // Homepage - no product grid
   function renderHomepage() {
     document.getElementById('appRoot').innerHTML = `
-      <div class="hero"><span class="badge-sa">🇿🇦 PROUDLY SOUTH AFRICAN</span><h1>KIVARO</h1><p>Designed by Mihle Manono — premium hoodies & caps, crafted in ZA.</p><div class="flex gap-4 justify-center flex-wrap"><button id="homeShopBtn" class="btn-primary">SHOP NOW</button><button id="home360Btn" class="btn-secondary">EXPLORE 360°</button></div></div>
-      <div class="container"><div class="section-title">SIGNATURE PIECES</div><div class="divider"></div><div class="grid-4" id="featuredGrid"></div></div>
-      <div class="container mt-12 mb-12 text-center"><img src="https://img.sanishtech.com/u/2ef34128dae88a1c89e6c055ace59bca.png" style="height:40px;"><h3 class="mt-2">Join the Movement</h3><div class="flex max-w-md mx-auto gap-3 mt-4"><input type="email" id="newsEmailHome" placeholder="Email" class="flex-1"><button id="newsHomeBtn" class="btn-primary">Subscribe</button></div></div>
+      <div class="hero"><span class="badge-sa">🇿🇦 PROUDLY SOUTH AFRICAN</span><h1>KIVARO</h1><p>Designed by Mihle Manono — premium streetwear, crafted in Cape Town.</p><div class="flex gap-4 justify-center flex-wrap"><button id="homeShopBtn" class="btn-primary">SHOP COLLECTION</button></div></div>
+      <div class="container mt-12 mb-12 text-center"><img src="https://img.sanishtech.com/u/2ef34128dae88a1c89e6c055ace59bca.png" style="height:40px;" onerror="this.style.display='none'"><h3 class="mt-2">Join the Movement</h3><div class="flex max-w-md mx-auto gap-3 mt-4"><input type="email" id="newsEmailHome" placeholder="Email" class="flex-1"><button id="newsHomeBtn" class="btn-primary">Subscribe</button></div></div>
     `;
-    let featured = products.slice(0,4);
-    document.getElementById('featuredGrid').innerHTML = featured.map(p => `
-      <div class="product-card product-rotate-item" data-front="${p.frontImg}" data-back="${p.backImg}">
-        <div class="rotate-container"><img src="${p.frontImg}" class="rotate-img w-full h-full object-cover"></div>
-        <div class="product-info"><div class="flex justify-between"><div><div class="product-title">${p.name}</div><div class="product-price">R${p.price}</div></div><i class="far fa-heart wishlist-icon" data-id="${p.id}"></i></div><select class="size-select" data-id="${p.id}">${p.sizes.map(s=>`<option>${s}</option>`).join('')}</select><button class="addCartQuick btn-primary w-full" data-id="${p.id}">ADD TO CART</button></div>
-      </div>
-    `).join('');
-    attachProductEvents();
     document.getElementById('homeShopBtn')?.addEventListener('click',()=>{ currentPage='shop'; renderCurrentPage(); });
-    document.getElementById('home360Btn')?.addEventListener('click',()=>{ currentPage='shop'; renderCurrentPage(); });
     document.getElementById('newsHomeBtn')?.addEventListener('click',()=>{ let email=document.getElementById('newsEmailHome').value; if(email && !subscribers.includes(email)){ subscribers.push(email); saveSubscribers(); showToast("Subscribed!"); } else showToast("Invalid or duplicate email"); });
   }
 
+  // Shop page - placeholder for users
   function renderShopPage() {
-    document.getElementById('appRoot').innerHTML = `<div class="pt-28 pb-12"><div class="container"><div class="section-title">ALL HOODIES & CAPS</div><div class="divider"></div><div class="grid-4" id="shopGrid"></div></div></div>`;
-    document.getElementById('shopGrid').innerHTML = products.map(p => `
-      <div class="product-card product-rotate-item" data-front="${p.frontImg}" data-back="${p.backImg}">
-        <div class="rotate-container"><img src="${p.frontImg}" class="rotate-img w-full h-full object-cover"></div>
-        <div class="product-info"><div class="flex justify-between"><div><div class="product-title">${p.name}</div><div class="product-price">R${p.price}</div></div><i class="far fa-heart wishlist-icon" data-id="${p.id}"></i></div><select class="size-select" data-id="${p.id}">${p.sizes.map(s=>`<option>${s}</option>`).join('')}</select><button class="addCartShop btn-primary w-full" data-id="${p.id}">ADD TO CART</button></div>
-      </div>
-    `).join('');
-    attachProductEvents();
+    document.getElementById('appRoot').innerHTML = `<div class="pt-32 pb-20"><div class="container text-center"><h2 class="text-3xl text-blue-300">Coming Soon</h2><p class="mt-4">Our exclusive collection is being curated. Subscribe to get notified when we drop.</p><div class="flex max-w-md mx-auto gap-3 mt-6"><input type="email" id="shopEmail" placeholder="Email" class="flex-1"><button id="shopSubscribeBtn" class="btn-primary">Notify Me</button></div></div></div>`;
+    document.getElementById('shopSubscribeBtn')?.addEventListener('click',()=>{ let email=document.getElementById('shopEmail').value; if(email && !subscribers.includes(email)){ subscribers.push(email); saveSubscribers(); showToast("You'll be notified!"); } else showToast("Already subscribed or invalid"); });
   }
 
-  function attachProductEvents() {
-    document.querySelectorAll('.addCartQuick, .addCartShop').forEach(btn=>btn.addEventListener('click',(e)=>{ let id=parseInt(btn.dataset.id); let prod=products.find(p=>p.id===id); let sizeSelect=btn.closest('.product-card')?.querySelector('.size-select'); let size=sizeSelect?.value||prod.sizes[0]; addToCart(prod,size); }));
-    document.querySelectorAll('.wishlist-icon').forEach(icon=>icon.addEventListener('click',(e)=>{ let id=parseInt(icon.dataset.id); let prod=products.find(p=>p.id===id); if(prod) toggleWishlist(prod); renderCurrentPage(); }));
-  }
-
-  // ---------- NEW ABOUT PAGE with SA flag colors and full content ----------
+  // About page - full content
   function renderAboutPage() {
     document.getElementById('appRoot').innerHTML = `
-      <div class="about-hero">
-        <div><h1>KIVARO</h1><p>“Kivaro is not what you wear. It is what you become.”</p></div>
-      </div>
+      <div class="about-hero"><div><h1>KIVARO</h1><p>“Kivaro is not what you wear. It is what you become.”</p></div></div>
       <div class="flag-strip"></div>
-      <div class="container story-section">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div><img src="https://images.unsplash.com/photo-1580060839134-2e5f4a3f7e1f?w=800&h=600&fit=crop" class="rounded-lg w-full" alt="Cape Town"></div>
-          <div><h2 class="text-3xl text-red-600">ORIGIN: CAPE TOWN</h2><p class="mt-4 text-gray-300">Born in the shadows of Table Mountain, KIVARO emerged from the vibrant streets of Cape Town. A city where ocean meets mountain, where cultures collide — that raw energy forged our DNA. Every stitch carries the spirit of Mzansi.</p></div>
-        </div>
-      </div>
-      <div class="bg-black py-16">
-        <div class="container text-center">
-          <h2 class="text-4xl font-bold text-red-600">POWER · DESIRE · CONFIDENCE · PRIDE</h2>
-          <div class="divider mx-auto"></div>
-          <div class="grid md:grid-cols-4 gap-8 mt-8">
-            <div><i class="fas fa-bolt text-3xl text-yellow-500"></i><h3 class="text-xl mt-2">POWER</h3><p>Unapologetic strength in every silhouette.</p></div>
-            <div><i class="fas fa-fire text-3xl text-red-600"></i><h3 class="text-xl mt-2">DESIRE</h3><p>Relentless pursuit of excellence.</p></div>
-            <div><i class="fas fa-crown text-3xl text-blue-600"></i><h3 class="text-xl mt-2">CONFIDENCE</h3><p>Wear your truth, own the room.</p></div>
-            <div><i class="fas fa-flag-checkered text-3xl text-green-600"></i><h3 class="text-xl mt-2">PRIDE</h3><p>South African heritage, global vision.</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="container py-16">
-        <div class="text-center max-w-3xl mx-auto">
-          <h2 class="text-3xl text-red-600">MISSION</h2>
-          <p class="text-xl mt-4">To empower individuals to own their identity and ambition through uncompromising design. KIVARO is a movement for those who dare to lead, to create, to rise.</p>
-        </div>
-      </div>
-      <div class="bg-gray-900 py-16">
-        <div class="container">
-          <h2 class="text-3xl text-center text-red-600">THE JOURNEY</h2>
-          <div class="timeline">
-            <div class="timeline-item"><h3>2026</h3><p>Founded in Cape Town</p></div>
-            <div class="timeline-item"><h3>2027</h3><p>Built by local artisans</p></div>
-            <div class="timeline-item"><h3>2028</h3><p>Global luxury movement</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="container py-16 text-center">
-        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1200&h=600&fit=crop" class="w-full rounded-lg" alt="South African landscape">
-        <p class="mt-6 text-gray-400">From the streets of Joburg to the world — KIVARO is the future of African luxury.</p>
-      </div>
+      <div class="container story-section"><div class="grid md:grid-cols-2 gap-12 items-center"><div><img src="https://picsum.photos/id/104/800/600" class="rounded-lg w-full" alt="Cape Town"></div><div><h2 class="text-3xl text-blue-300">ORIGIN: CAPE TOWN</h2><p class="mt-4 text-gray-300">Born in the shadows of Table Mountain, KIVARO emerged from the vibrant streets of Cape Town. A city where ocean meets mountain, where cultures collide — that raw energy forged our DNA. Every stitch carries the spirit of Mzansi.</p></div></div></div>
+      <div class="bg-black py-16"><div class="container text-center"><h2 class="text-4xl font-bold text-blue-300">POWER · DESIRE · CONFIDENCE · PRIDE</h2><div class="divider mx-auto"></div><div class="grid md:grid-cols-4 gap-8 mt-8"><div><i class="fas fa-bolt text-3xl text-blue-300"></i><h3 class="text-xl mt-2">POWER</h3><p>Unapologetic strength in every silhouette.</p></div><div><i class="fas fa-fire text-3xl text-blue-300"></i><h3 class="text-xl mt-2">DESIRE</h3><p>Relentless pursuit of excellence.</p></div><div><i class="fas fa-crown text-3xl text-blue-300"></i><h3 class="text-xl mt-2">CONFIDENCE</h3><p>Wear your truth, own the room.</p></div><div><i class="fas fa-flag-checkered text-3xl text-blue-300"></i><h3 class="text-xl mt-2">PRIDE</h3><p>South African heritage, global vision.</p></div></div></div></div>
+      <div class="container py-16"><div class="text-center max-w-3xl mx-auto"><h2 class="text-3xl text-blue-300">MISSION</h2><p class="text-xl mt-4">To empower individuals to own their identity and ambition through uncompromising design. KIVARO is a movement for those who dare to lead, to create, to rise.</p></div></div>
+      <div class="bg-gray-900 py-16"><div class="container"><h2 class="text-3xl text-center text-blue-300">THE JOURNEY</h2><div class="timeline"><div class="timeline-item"><h3>2026</h3><p>Founded in Cape Town</p></div><div class="timeline-item"><h3>2027</h3><p>Built by local artisans</p></div><div class="timeline-item"><h3>2028</h3><p>Global luxury movement</p></div></div></div></div>
+      <div class="container py-16 text-center"><img src="https://picsum.photos/id/15/1200/600" class="w-full rounded-lg" alt="South African landscape"><p class="mt-6 text-gray-400">From the streets of Joburg to the world — KIVARO is the future of African luxury.</p></div>
     `;
   }
 
   function renderContactPage() {
-    document.getElementById('appRoot').innerHTML = `<div class="pt-28 pb-12 container"><div class="grid md:grid-cols-2 gap-8"><div><h2 class="text-2xl text-red-600">STUDIO</h2><p>Johannesburg | Cape Town</p><p class="mt-2"><i class="fas fa-envelope"></i> <strong>info.kivarobranding@gmail.com</strong></p><form id="contactForm" class="mt-6"><input type="text" placeholder="Name" class="mb-3"><input type="email" placeholder="Email" class="mb-3"><textarea rows="3" placeholder="Message"></textarea><button type="submit" class="btn-primary mt-3">SEND</button></form></div><div><h2 class="text-2xl text-red-600">FAQ</h2><div class="mt-4"><h3>Shipping SA?</h3><p>Free over R1500, 2-4 days</p><h3 class="mt-3">Returns?</h3><p>14 days store credit</p><h3 class="mt-3">Designed by?</h3><p>Mihle Manono</p><h3 class="mt-3">Customer Support</h3><p>info.kivarobranding@gmail.com</p></div></div></div></div>`;
+    document.getElementById('appRoot').innerHTML = `<div class="pt-28 pb-12 container"><div class="grid md:grid-cols-2 gap-8"><div><h2 class="text-2xl text-blue-300">STUDIO</h2><p>Johannesburg | Cape Town</p><p class="mt-2"><i class="fas fa-envelope"></i> <strong>info.kivarobranding@gmail.com</strong></p><form id="contactForm" class="mt-6"><input type="text" placeholder="Name" class="mb-3"><input type="email" placeholder="Email" class="mb-3"><textarea rows="3" placeholder="Message"></textarea><button type="submit" class="btn-primary mt-3">SEND</button></form></div><div><h2 class="text-2xl text-blue-300">FAQ</h2><div class="mt-4"><h3>Shipping SA?</h3><p>Free over R1500, 2-4 days</p><h3 class="mt-3">Returns?</h3><p>14 days store credit</p><h3 class="mt-3">Designed by?</h3><p>Mihle Manono</p><h3 class="mt-3">Customer Support</h3><p>info.kivarobranding@gmail.com</p></div></div></div></div>`;
     document.getElementById('contactForm')?.addEventListener('submit',(e)=>{ e.preventDefault(); showToast("Message sent! We'll reply within 24h."); });
   }
 
-  // ADMIN DASHBOARD (unchanged but with file upload logic)
+  // ADMIN DASHBOARD
   function renderAdminDashboard() {
     document.getElementById('appRoot').innerHTML = `
-      <div class="pt-24 pb-12 container"><div class="flex justify-between items-center flex-wrap gap-3"><h1 class="text-2xl text-red-600">ADMIN PANEL</h1><button id="logoutAdminBtn" class="btn-secondary">LOGOUT</button></div>
+      <div class="pt-24 pb-12 container"><div class="flex justify-between items-center flex-wrap gap-3"><h1 class="text-2xl text-blue-300">ADMIN PANEL</h1><button id="logoutAdminBtn" class="btn-secondary">LOGOUT</button></div>
       <div class="grid md:grid-cols-3 gap-4 my-6"><div class="bg-gray-900 p-4 rounded">Views: ${pageViews}</div><div class="bg-gray-900 p-4 rounded">Subscribers: ${subscribers.length}</div><div class="bg-gray-900 p-4 rounded">Products: ${products.length}</div></div>
       <button id="addProductAdmin" class="btn-primary mb-4">+ ADD PRODUCT (front + back images)</button>
-      <div class="overflow-x-auto"><table class="admin-table"><thead><tr><th>Image</th><th>Name</th><th>Price</th><th>Front URL</th><th>Back URL</th><th>Actions</th></tr></thead><tbody id="adminProductList"></tbody></table></div>
-      <h3 class="text-xl mt-8 text-red-600">Subscribers</h3><ul id="adminSubList" class="bg-gray-900 p-4 max-h-48 overflow-auto"></ul></div>
+      <div class="overflow-x-auto"><table class="admin-table"><thead><tr><th>Image</th><th>Name</th><th>Price</th><th>Actions</th></tr></thead><tbody id="adminProductList"></tbody>}</div>
+      <h3 class="text-xl mt-8 text-blue-300">Subscribers</h3><ul id="adminSubList" class="bg-gray-900 p-4 max-h-48 overflow-auto"></ul></div>
     `;
     function renderProducts() {
       let tbody = document.getElementById('adminProductList');
-      tbody.innerHTML = products.map(p => `<tr><td><img src="${p.frontImg}" class="w-10 h-10 object-cover"></td><td>${p.name}</td><td>R${p.price}</td><td class="truncate max-w-xs">${p.frontImg}</td><td class="truncate">${p.backImg}</td><td><button class="editProd text-blue-400" data-id="${p.id}">Edit</button> <button class="deleteProd text-red-400" data-id="${p.id}">Delete</button></td></tr>`).join('');
+      tbody.innerHTML = products.map(p => `<tr><td><img src="${p.frontImg}" class="w-10 h-10 object-cover rounded"></td><td>${p.name}</td><td>R${p.price}</td><td><button class="editProd text-blue-400" data-id="${p.id}">Edit</button> <button class="deleteProd text-red-400" data-id="${p.id}">Delete</button></td>`).join('');
       document.querySelectorAll('.deleteProd').forEach(btn=>btn.addEventListener('click',()=>{ products=products.filter(p=>p.id!=parseInt(btn.dataset.id)); saveProducts(); renderProducts(); }));
-      document.querySelectorAll('.editProd').forEach(btn=>btn.addEventListener('click',()=>{ let id=parseInt(btn.dataset.id); let prod=products.find(p=>p.id===id); let newName=prompt("Name",prod.name); if(newName) prod.name=newName; let newPrice=prompt("Price (ZAR)",prod.price); if(newPrice) prod.price=parseInt(newPrice); let newFront=prompt("Front image URL",prod.frontImg); if(newFront) prod.frontImg=newFront; let newBack=prompt("Back image URL",prod.backImg); if(newBack) prod.backImg=newBack; saveProducts(); renderProducts(); }));
+      document.querySelectorAll('.editProd').forEach(btn=>btn.addEventListener('click',()=>{ let id=parseInt(btn.dataset.id); let prod=products.find(p=>p.id===id); let newName=prompt("Name",prod.name); if(newName) prod.name=newName; let newPrice=prompt("Price (ZAR)",prod.price); if(newPrice) prod.price=parseInt(newPrice); saveProducts(); renderProducts(); }));
     }
     renderProducts();
     document.getElementById('adminSubList').innerHTML = subscribers.map(email=>`<li>${email}</li>`).join('');
     document.getElementById('addProductAdmin')?.addEventListener('click',()=>{
-      // Show product modal for file upload
       document.getElementById('productModal').classList.add('flex');
       document.getElementById('saveProductBtn').onclick = () => {
         let name = document.getElementById('prodName').value;
@@ -562,6 +602,11 @@
             saveProducts();
             renderProducts();
             document.getElementById('productModal').classList.remove('flex');
+            document.getElementById('prodName').value = '';
+            document.getElementById('prodPrice').value = '';
+            document.getElementById('prodSizes').value = '';
+            document.getElementById('prodFrontFile').value = '';
+            document.getElementById('prodBackFile').value = '';
             showToast("Product added");
           };
           readerBack.readAsDataURL(backFile);
@@ -617,10 +662,10 @@
 </script>
 <footer>
   <div class="container text-center py-6">
-    <img src="https://img.sanishtech.com/u/2ef34128dae88a1c89e6c055ace59bca.png" style="height:35px; margin-bottom:1rem;">
+    <img src="https://img.sanishtech.com/u/2ef34128dae88a1c89e6c055ace59bca.png" style="height:35px; margin-bottom:1rem;" onerror="this.style.display='none'">
     <p>© 2025 KIVARO — South African Luxury Streetwear</p>
-    <p>Contact: <a href="mailto:info.kivarobranding@gmail.com" style="color:var(--sa-red);">info.kivarobranding@gmail.com</a></p>
-    <div class="flex justify-center gap-4 mt-3"><i class="fab fa-instagram text-red-600"></i><i class="fab fa-twitter text-blue-600"></i><i class="fab fa-tiktok text-black"></i></div>
+    <p>Contact: <a href="mailto:info.kivarobranding@gmail.com" style="color:var(--baby-blue);">info.kivarobranding@gmail.com</a></p>
+    <div class="flex justify-center gap-4 mt-3"><i class="fab fa-instagram" style="color:#87CEEB;"></i><i class="fab fa-twitter" style="color:#87CEEB;"></i><i class="fab fa-tiktok" style="color:#87CEEB;"></i></div>
   </div>
 </footer>
 </body>
